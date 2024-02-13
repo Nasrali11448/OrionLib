@@ -479,8 +479,8 @@ function OrionLib:MakeWindow(WindowConfig)
 	WindowConfig.IntroText = WindowConfig.IntroText or "Orion Library"
 	WindowConfig.CloseCallback = WindowConfig.CloseCallback or function() end
 	WindowConfig.ShowIcon = WindowConfig.ShowIcon or false
-	WindowConfig.Icon = WindowConfig.Icon or "rbxassetid://16352679822"
-	WindowConfig.IntroIcon = WindowConfig.IntroIcon or "rbxassetid://16352679822"
+	WindowConfig.Icon = WindowConfig.Icon or "rbxassetid://8834748103"
+	WindowConfig.IntroIcon = WindowConfig.IntroIcon or "rbxassetid://8834748103"
 	OrionLib.Folder = WindowConfig.ConfigFolder
 	OrionLib.SaveCfg = WindowConfig.SaveConfig
 
@@ -559,7 +559,7 @@ function OrionLib:MakeWindow(WindowConfig)
 				SetProps(MakeElement("Image", "https://www.roblox.com/headshot-thumbnail/image?userId=".. LocalPlayer.UserId .."&width=420&height=420&format=png"), {
 					Size = UDim2.new(1, 0, 1, 0)
 				}),
-				AddThemeObject(SetProps(MakeElement("Image", "rbxassetid://70727193388"), {
+				AddThemeObject(SetProps(MakeElement("Image", "rbxassetid://4031889928"), {
 					Size = UDim2.new(1, 0, 1, 0),
 				}), "Second"),
 				MakeElement("Corner", 1)
@@ -645,13 +645,18 @@ function OrionLib:MakeWindow(WindowConfig)
 
 	MakeDraggable(DragPoint, MainWindow)
 
-    local notification = OrionLib:MakeNotification({
-        Name = "PunkTeam",
-        Content = "Hope you enjoyed 🙂",
-        Time = 3
-    })
-    
-    local ImageLabel = Instance.new("ImageLabel")
+	AddConnection(CloseBtn.MouseButton1Up, function()
+		MainWindow.Visible = false
+		UIHidden = true
+		OrionLib:MakeNotification({
+			Name = "PunkTeam",
+			Content = "Hope you enjoyed 🙂",
+			Time = 3
+		})
+		WindowConfig.CloseCallback()
+	end)
+
+	    local ImageLabel = Instance.new("ImageLabel")
     ImageLabel.Size = UDim2.new(0, 100, 0, 100) -- Adjust size as needed
     ImageLabel.Position = UDim2.new(0.5, -50, 0.5, -50) -- Adjust position as needed
     ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -659,20 +664,12 @@ function OrionLib:MakeWindow(WindowConfig)
     ImageLabel.Parent = notification.Frame
     ImageLabel.Draggable = true -- Make the image draggable
     
-    ImageLabel.MouseButton1Click:Connect(function()
+--[[    ImageLabel.MouseButton1Click:Connect(function()
         MainWindow.Visible = true
         UIHidden = false
-    end)
-    
-    WindowConfig.CloseCallback()
-end)
-
-
-	AddConnection(UserInputService.InputBegan, function(Input)
-		if Input.KeyCode == Enum.KeyCode.RightShift and UIHidden then
-			MainWindow.Visible = true
 		end
 	end)
+]]--
 
 	AddConnection(MinimizeBtn.MouseButton1Up, function()
 		if Minimized then
