@@ -671,13 +671,13 @@ local ImageLabel = Instance.new("ImageLabel")
     ImageLabel.Active = true
     ImageLabel.Selectable = true
     
-    ImageLabel.MouseButton1Click:Connect(function()
+--[[    ImageLabel.MouseButton1Click:Connect(function()
         MainWindow.Visible = true
         UIHidden = false
 		end
 	end)
 
-
+]]--
 
 
 
