@@ -661,7 +661,7 @@ function OrionLib:MakeWindow(WindowConfig)
     ImageLabel.Position = UDim2.new(0.5, -50, 0.5, -50) -- Adjust position as needed
     ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
     ImageLabel.Image = "rbxassetid://16352679822"
-    ImageLabel.Parent = UIHidden
+    ImageLabel.Parent = WindowConfig
     ImageLabel.Draggable = true -- Make the image draggable
     
 --[[    ImageLabel.MouseButton1Click:Connect(function()
