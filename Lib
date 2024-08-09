@@ -654,22 +654,27 @@ function OrionLib:MakeWindow(WindowConfig)
 			Time = 0
 		})
 		WindowConfig.CloseCallback()
-	end)
-
-	    local ImageLabel = Instance.new("ImageLabel")
-    ImageLabel.Size = UDim2.new(0, 100, 0, 100) -- Adjust size as needed
-    ImageLabel.Position = UDim2.new(0.5, -50, 0.5, -50) -- Adjust position as needed
+		
+		
+			    local ImageLabel = Instance.new("ImageLabel")
+    ImageLabel.Size = UDim2.new(0, 100, 0, 100)
+    ImageLabel.Position = UDim2.new((0, 25, 0, 15)
     ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
     ImageLabel.Image = "rbxassetid://16352679822"
     ImageLabel.Parent = game.CoreGui
-    ImageLabel.Draggable = true -- Make the image draggable
+    ImageLabel.Draggable = true
+    ImageLabel.Active = true
+    ImageLabel.Selectable = true
     
---[[    ImageLabel.MouseButton1Click:Connect(function()
+    ImageLabel.MouseButton1Click:Connect(function()
         MainWindow.Visible = true
         UIHidden = false
 		end
 	end)
-]]--
+
+		
+	end)
+
 
 	AddConnection(MinimizeBtn.MouseButton1Up, function()
 		if Minimized then
