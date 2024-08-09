@@ -656,7 +656,12 @@ function OrionLib:MakeWindow(WindowConfig)
 		WindowConfig.CloseCallback()
 		
 		
-			    local ImageLabel = Instance.new("ImageLabel")
+			    
+		
+	end)
+
+
+local ImageLabel = Instance.new("ImageLabel")
     ImageLabel.Size = UDim2.new(0, 100, 0, 100)
     ImageLabel.Position = UDim2.new((0, 25, 0, 15)
     ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -672,8 +677,8 @@ function OrionLib:MakeWindow(WindowConfig)
 		end
 	end)
 
-		
-	end)
+
+
 
 
 	AddConnection(MinimizeBtn.MouseButton1Up, function()
