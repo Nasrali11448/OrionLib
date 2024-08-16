@@ -7,8 +7,11 @@ local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
 
 
-
+local ScreenGui = Instance.new("ScreenGui")
 local ImageButton = Instance.new("ImageButton")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
 
 local OrionLib = {
 	Elements = {},
