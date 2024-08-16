@@ -6,6 +6,10 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
 
+
+
+local ImageButton = Instance.new("ImageButton")
+
 local OrionLib = {
 	Elements = {},
 	ThemeObjects = {},
@@ -649,6 +653,22 @@ function OrionLib:MakeWindow(WindowConfig)
 	AddConnection(CloseBtn.MouseButton1Up, function()
 		MainWindow.Visible = false
 		UIHidden = true
+		ImageButton.Parent = ScreenGui
+ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageButton.BackgroundTransparency = 1.000
+ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0, 0, 0.0693481266, 0)
+ImageButton.Size = UDim2.new(0, 40, 0, 40)
+ImageButton.Image = "rbxassetid://18903913150"
+ImageButton.Visible = true
+ImageButton.Draggable = true
+ImageButton.Active = true
+ImageButton.Selectable = true
+ImageButton.MouseButton1Click:Connect(function()
+		MainWindow.Visible = true
+		UIHidden = false
+		end)
 		WindowConfig.CloseCallback()
 	end)
 
