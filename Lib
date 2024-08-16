@@ -1,3 +1,4 @@
+
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -648,30 +649,14 @@ function OrionLib:MakeWindow(WindowConfig)
 	AddConnection(CloseBtn.MouseButton1Up, function()
 		MainWindow.Visible = false
 		UIHidden = true
-		OrionLib:MakeNotification({
-			Name = "PunkTeam",
-			Content = "Hope you enjoyed 🙂",
-			Time = 0
-		})
 		WindowConfig.CloseCallback()
 	end)
 
-	    local ImageLabel = Instance.new("ImageLabel")
-    ImageLabel.Size = UDim2.new(0, 100, 0, 100) -- Adjust size as needed
-    ImageLabel.Position = UDim2.new(0, 25, 0, 15)
-    ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
-    ImageLabel.Image = "rbxassetid://16352679822"
-    ImageLabel.Parent = game.CoreGui
-    ImageLabel.Draggable = true
-    ImageLabel.Active = true
-    ImageLabel.Selectable = true
-    
---[[    ImageLabel.MouseButton1Click:Connect(function()
-        MainWindow.Visible = true
-        UIHidden = false
+	AddConnection(UserInputService.InputBegan, function(Input)
+		if Input.KeyCode == Enum.KeyCode.RightShift and UIHidden then
+			MainWindow.Visible = true
 		end
 	end)
-]]--
 
 	AddConnection(MinimizeBtn.MouseButton1Up, function()
 		if Minimized then
@@ -1762,6 +1747,8 @@ function OrionLib:MakeWindow(WindowConfig)
 	--		writefile("NewLibraryNotification1.txt","The value for the notification having been sent to you.")
 	--	end
 	--end
+	
+
 	
 	return TabFunction
 end   
